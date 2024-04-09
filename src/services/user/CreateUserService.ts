@@ -8,7 +8,7 @@ class CreateUserService {
   async execute({ name, email, password }: userRequest) {
     console.log(name, email, password);
 
-    return { name: name };
+    return { name: name, email: email, password: password };
   }
 }
 
