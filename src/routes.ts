@@ -1,10 +1,10 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 
 import { CreateUserController } from "./controllers/user/CreateUserControllers";
 
 const router = Router();
 
 //-- Rotas USERS --
-router.get("/user", new CreateUserController().handle);
+router.post("/users", new CreateUserController().handle);
 
 export { router };
