@@ -23,12 +23,14 @@ class CreateUserService {
       throw new Error("User already exist");
     }
 
+    const passwordHash = await hash(password, 8);
+
     const user = await primsaClient.user.create({
       //data = data used for creating a new user in the db
       data: {
         name: name,
         email: email,
-        password: password,
+        password: passwordHash,
       },
       // select - data that you want to show in your return
       select: {
