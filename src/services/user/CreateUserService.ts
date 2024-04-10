@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import primsaClient from "../../prisma";
 import { hash } from "bcryptjs";
 
