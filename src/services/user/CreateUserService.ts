@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import primsaClient from "../../prisma";
+import { hash } from "bcryptjs";
 
 interface userRequest {
   name: string;
@@ -23,11 +24,17 @@ class CreateUserService {
     }
 
     const user = await primsaClient.user.create({
-      //data = data for crating a new user ind the db
+      //data = data used for creating a new user in the db
       data: {
         name: name,
         email: email,
         password: password,
+      },
+      // select - data that you want to show in your return
+      select: {
+        id: true,
+        email: true,
+        name: true,
       },
     });
 
