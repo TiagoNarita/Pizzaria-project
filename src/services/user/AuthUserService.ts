@@ -1,6 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import primsaClient from "../../prisma";
 import { compare } from "bcryptjs";
+import { sign } from "jsonwebtoken";
 
 interface AuthRequest {
   email: string;
@@ -26,7 +26,26 @@ class AuthUserService {
       throw new Error("User/password incorrect");
     }
 
-    return { email };
+    //generate a token JWT and return the users data like id, name and email
+
+    const token = sign(
+      {
+        name: user.name,
+        email: user.email,
+      },
+      process.env.JWT_SECRET,
+      {
+        subject: user.id,
+        expiresIn: "30d",
+      }
+    );
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      token: token,
+    };
   }
 }
 
