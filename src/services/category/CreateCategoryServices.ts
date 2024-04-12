@@ -1,7 +1,7 @@
 import primsaClient from "../../prisma";
 
 class CreateCategoryService {
-  async exercute() {
+  async execute() {
     return { ok: true };
   }
 }
