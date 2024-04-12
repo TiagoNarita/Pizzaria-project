@@ -15,5 +15,5 @@ class DetailUserService {
     return user;
   }
 }
-
+//forget to commit
 export default DetailUserService;
