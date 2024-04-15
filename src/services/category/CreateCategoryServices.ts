@@ -10,6 +10,16 @@ class CreateCategoryService {
       throw new Error("Name invalid");
     }
 
+    const categoryAlreadyExist = await primsaClient.category.findFirst({
+      where: {
+        name: name,
+      },
+    });
+
+    if (categoryAlreadyExist) {
+      throw new Error("Category already exist");
+    }
+
     const category = await primsaClient.category.create({
       data: {
         name: name,
