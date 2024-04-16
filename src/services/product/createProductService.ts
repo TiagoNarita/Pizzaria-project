@@ -1,3 +1,5 @@
+import primsaClient from "../../prisma";
+
 interface ProductRequest {
   name: string;
   price: string;
@@ -6,7 +8,7 @@ interface ProductRequest {
   category_id: string;
 }
 
-class createProductService {
+class CreateProductService {
   async execute({
     name,
     banner,
@@ -18,4 +20,4 @@ class createProductService {
   }
 }
 
-export { createProductService };
+export { CreateProductService };
