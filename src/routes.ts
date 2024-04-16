@@ -9,14 +9,14 @@ import { ListCategoryController } from "./controllers/category/ListCategoryContr
 
 const router = Router();
 
-//-- Rotas USERS --
+//-- Routes USERS --
 router.post("/users", new CreateUserController().handle);
 
 router.post("/session", new AuthUserController().handle);
 
 router.get("/me", isAuthenticated, new DetailUserController().handle);
 
-//-- Rotas CATEGORY --
+//-- Routes CATEGORY --
 
 router.post(
   "/category",
@@ -25,5 +25,7 @@ router.post(
 );
 
 router.get("/category", isAuthenticated, new ListCategoryController().handle);
+
+// -- Routes PRODUCTS --
 
 export { router };
