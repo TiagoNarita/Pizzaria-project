@@ -16,7 +16,16 @@ class CreateProductService {
     description,
     price,
   }: ProductRequest) {
-    return { ok: true };
+    const product = await primsaClient.product.create({
+      data: {
+        name: name,
+        price: price,
+        description: description,
+        banner: banner,
+        category_id: category_id,
+      },
+    });
+    return { product };
   }
 }
 

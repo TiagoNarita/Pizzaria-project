@@ -6,6 +6,7 @@ class CreateProductController {
     const { name, price, description, category_id } = req.body;
 
     const createProductService = new CreateProductService();
+
     if (!req.file) {
       throw new Error("Error upload file");
     } else {
