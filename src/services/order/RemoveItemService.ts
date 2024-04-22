@@ -1,14 +1,14 @@
 import primsaClient from "../../prisma";
 
 interface orderItem {
-  itemId: string;
+  item_id: string;
 }
 
 class RemoveItemService {
-  async execute({ itemId }: orderItem) {
+  async execute({ item_id }: orderItem) {
     const order = await primsaClient.item.delete({
       where: {
-        id: itemId,
+        id: item_id,
       },
     });
 
