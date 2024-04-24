@@ -6,9 +6,13 @@ interface DetailRequest {
 
 class DetailOrderService {
   async execute({ order_id }: DetailRequest) {
-    const orders = primsaClient.item.findMany({
+    const orders = await primsaClient.item.findMany({
       where: {
         order_id: order_id,
+      },
+      include: {
+        product: true,
+        order: true,
       },
     });
 
