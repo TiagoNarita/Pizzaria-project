@@ -6,7 +6,7 @@ interface AuthRequest {
   email: string;
   password: string;
 }
-
+//this is complicated
 class AuthUserService {
   async execute({ email, password }: AuthRequest) {
     //check if the email exists
